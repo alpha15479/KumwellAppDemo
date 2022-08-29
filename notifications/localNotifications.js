@@ -22,16 +22,10 @@ const Noti = () => {
     Notifications.scheduleNotificationAsync({
     content: {
         title: "Lightning Warning!",
-        body: "Hello this is a local notification!",
+        body: "There is lightning nearby your location!",
     },
     trigger: { seconds: 1 },
     })
-
-//     return (
-//     <View style={styles.container}>
-//       <Text>Hi, I am notification.</Text>
-//     </View>
-//   )
 }
 
 const styles = StyleSheet.create({

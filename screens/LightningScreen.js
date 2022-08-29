@@ -47,6 +47,10 @@ const LocationMap = () => {
     }, []);
 
     useEffect(() => { //
+      fetch(`http://${host}/LLSApp/jgetlast1hr.php`)
+            .then(response => response.json())
+            .then(result => setData(result))
+            .catch(err => Alert.alert(err));
       let secTimer = setInterval(() => {
         fetch(`http://${host}/LLSApp/jgetlast1hr.php`)
             .then(response => response.json())
@@ -59,16 +63,26 @@ const LocationMap = () => {
     const lightningElement = data.map((dataLightnings, index) => {
       return <LightningMarker key={index} dataLightnings={dataLightnings} />;
     });
+    
 
-    const lightningCal = data.map((dataLightnings, index) => {
-      return <LightningCalculate key={index} dataLightnings={{dataLightnings,index}} />;
-    });
+
+    // let doc = { item: []};
+    // for (let i=1; i<100; i++){
+    //   doc.item.push(lightningElement)
+    // }
+    // console.log("Push :", doc)
+
+    //console.log("lightning element", lightningElement)
+    // console.log(dataLightnings.LAT)
+
+    const LightningCal = () => {
+      return <LightningCalculate dataLightnings={data} />;
+    };
 
     return (
         <View style={styles.containerMap}>
             {loading ? <ActivityIndicator size="large" /> : (
                 <View>
-                  <Noti/>
                     <MapView 
                         style={styles.map} 
                         initialRegion={{
@@ -85,7 +99,7 @@ const LocationMap = () => {
                         rotateEnabled={false}
                         >
                         {lightningElement}
-                        {lightningCal}
+                        
                         <Circle 
                         center={{ 
                             latitude: location.coords.latitude,
@@ -105,9 +119,9 @@ const LocationMap = () => {
                         fillColor={'rgba(255, 0, 0, 0.1)'}
                         />
                     </MapView>
-                    <View style={styles.legendTop}>
-                      <Text style={styles.legendTopSubText}>ฟ้าผ่าในรัศมี 6 กิโลเมตร</Text>
-                    </View>
+                    <LightningCal/>
+                    
+                
 
                 </View>
             )}
