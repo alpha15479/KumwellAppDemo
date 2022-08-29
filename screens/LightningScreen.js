@@ -4,19 +4,8 @@ import * as Location from 'expo-location';
 import MapView, { Marker, Circle } from 'react-native-maps';
 import LightningMarker from '../LightningCall/MarkerLightning';
 import Noti from '../notifications/localNotifications';
-//import { getDistance } from 'geolib';
-import LightningCalculate from '../LightningCall/CalculateLightning';
-//import axios from 'axios';
-//import { FAB } from "@rneui/base";
 
-// const calculateDistance = () => {
-//   const calDis = () => {
-//     let dis = getDistance(
-//       { latitude: parseFloat(dataLightnings.LAT), longitude: parseFloat(dataLightnings.LON) },
-//       { latitude: 51.528308, longitude: -0.3817765 }
-//     );
-//     alert(`Distance\n\n${dis} Meter\nOR\n${dis / 1000} KM`);
-//   };
+import LightningCalculate from '../LightningCall/CalculateLightning';
 
 const data_default = [{
   "DAT": "2022-08-23T16:46:08.682+00:00",
@@ -27,8 +16,6 @@ const data_default = [{
   "AMP": "-20.3",
   "ERR": "0.393"
 }]
-
-//const fetchLightning = () => axios.get('https://aws.random.cat/meow');
 
 const LocationMap = () => {
     const [location, setLocation] = useState(null);
@@ -119,13 +106,7 @@ const LocationMap = () => {
                         />
                     </MapView>
                     <View style={styles.legendTop}>
-                      <Image 
-                        //source={require('../image/lightning_icon/K_ICON_CCR.png') } 
-                        style={styles.legendTopImage} 
-                        resizeMode='contain' 
-                      /> 
-                      <Text style={styles.legendTopText}>{'FLASH >'}</Text>
-                      <Text style={styles.legendTopSubText}>Lightning in 42 km.</Text>
+                      <Text style={styles.legendTopSubText}>ฟ้าผ่าในรัศมี 6 กิโลเมตร</Text>
                     </View>
 
                 </View>
@@ -149,24 +130,6 @@ const LocationMap = () => {
                 resizeMode='contain' 
               /> 
               <Text style={styles.legendText3}>{'> 10-15 นาที'}</Text>
-              <Image 
-                source={require('../image/lightning_icon/K_ICON_CCR.png') } 
-                style={styles.legend} 
-                resizeMode='contain' 
-              /> 
-              <Text style={styles.legendText4}>{'> 0-5 นาที'}</Text>
-              <Image 
-                source={require('../image/lightning_icon/K_ICON_CCO.png') } 
-                style={styles.legend} 
-                resizeMode='contain' 
-              /> 
-              <Text style={styles.legendText5}>{'> 5-10 นาที'}</Text>
-              <Image 
-                source={require('../image/lightning_icon/K_ICON_CCY.png') } 
-                style={styles.legend} 
-                resizeMode='contain' 
-              /> 
-              <Text style={styles.legendText6}>{'> 10-15 นาที'}</Text>
             </View>
         </View>
       );
@@ -189,25 +152,20 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     resizeMode: 'cover',
     left: 10,
-    height: 100,
-    opacity: 0.9,
+    height: 70,
+    opacity: 0.85,
     top: 10,
     width: 180,
     borderRadius: 10,
-    backgroundColor: '#ecf0f1',
-  },
-  legendTopText: {
-    top: 10,
-    height: 50,
-    width: 70,
-    fontWeight: "bold",
+    backgroundColor: 'red',
   },
   legendTopSubText: {
-    top: 40,
+    top: 25,
     height: 50,
     width: 150,
-    right: 100,
-    fontWeight: "bold",
+    left: 20,
+    right: 0,
+    fontWeight: "900",
   },
   legendTopImage: {
     top: 10,
@@ -254,8 +212,8 @@ const styles = StyleSheet.create({
   },
   legendContainer: {
       position: 'absolute',
-      left: 5,
-      bottom: 135,
+      left: 8,
+      bottom: 75,
       height: 40,
       width: 210,
   },
