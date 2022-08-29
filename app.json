@@ -1,0 +1,50 @@
+{
+  "expo": {
+    "name": "Lightning Warning DEMO",
+    "slug": "LightningWarningDEMO",
+    "version": "1.0.3",
+    "orientation": "portrait",
+    "icon": "./assets/iconkumwell.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/Lightning.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "plugins": [
+      ["expo-notifications",
+      {
+        "icon": "./assets/iconkumwell.png",
+        "color": "#ffffff"
+      }
+      ]],
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/iconkumwell.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAxZTvARa2nJbab_ORCK-sNt3Dn56zZerI"
+        }
+      },
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION"
+      ],
+      "package": "com.benz27.LightningWarningDEMO"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
